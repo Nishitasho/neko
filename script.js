@@ -4,87 +4,73 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ---- Dropdown Menu (PC hover is CSS, this adds click support) ----
-  const navItems = document.querySelectorAll('.main-nav > li');
+  // ---- Two Column Height Calculation ----
+  function adjustTwoColHeight() {
+    const twoCol = document.getElementById('twoColArea');
+    if (!twoCol) return;
+    const left = twoCol.querySelector('.col-left');
+    const right = twoCol.querySelector('.col-right');
+    if (!left || !right) return;
+    const maxH = Math.max(left.scrollHeight, right.scrollHeight);
+    twoCol.style.minHeight = maxH + 'px';
+  }
 
-  navItems.forEach(item => {
-    const submenu = item.querySelector('.submenu');
-    if (!submenu) return;
+  adjustTwoColHeight();
+  window.addEventListener('resize', adjustTwoColHeight);
 
-    // Touch device support
-    item.addEventListener('touchstart', (e) => {
-      const isOpen = submenu.style.display === 'block';
-      // Close all other submenus
-      document.querySelectorAll('.submenu').forEach(s => s.style.display = 'none');
-      if (!isOpen) {
-        submenu.style.display = 'block';
-        e.preventDefault();
-      }
-    });
-  });
-
-  // Close submenus when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.main-nav')) {
-      document.querySelectorAll('.submenu').forEach(s => s.style.display = '');
-    }
-  });
-
-  // ---- Image Strip: Calculate width for seamless loop ----
+  // ---- Image Strip Seamless Loop ----
   const strip = document.getElementById('imageStrip');
   if (strip) {
     const images = strip.querySelectorAll('img');
     let loaded = 0;
-
-    const adjustAnimation = () => {
-      // Get the total width of the first half of images
+    const onAllLoaded = () => {
       const halfCount = Math.floor(images.length / 2);
       let totalWidth = 0;
       for (let i = 0; i < halfCount; i++) {
         totalWidth += images[i].offsetWidth;
       }
-
-      // Update animation to scroll exactly half the width
-      strip.style.setProperty('--strip-scroll', `-${totalWidth}px`);
-
-      // Create dynamic keyframes
-      const styleEl = document.createElement('style');
-      styleEl.textContent = `
-        @keyframes slideStrip {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-${totalWidth}px); }
-        }
-      `;
-      document.head.appendChild(styleEl);
+      if (totalWidth > 0) {
+        const style = document.createElement('style');
+        style.textContent = `
+          @keyframes stripSlide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-${totalWidth}px); }
+          }
+        `;
+        document.head.appendChild(style);
+      }
     };
-
     images.forEach(img => {
       if (img.complete) {
         loaded++;
-        if (loaded === images.length) adjustAnimation();
+        if (loaded === images.length) onAllLoaded();
       } else {
         img.addEventListener('load', () => {
           loaded++;
-          if (loaded === images.length) adjustAnimation();
+          if (loaded === images.length) onAllLoaded();
         });
       }
     });
   }
 
-  // ---- Smooth scroll to top ----
-  const scrollTopBtn = document.getElementById('scrollToTop');
-  if (scrollTopBtn) {
-    scrollTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+  // ---- Dropdown touch support ----
+  const navItems = document.querySelectorAll('.nav-menu > li');
+  navItems.forEach(item => {
+    const sub = item.querySelector('.submenu');
+    if (!sub) return;
+    item.addEventListener('touchstart', (e) => {
+      const open = sub.style.display === 'block';
+      document.querySelectorAll('.submenu').forEach(s => s.style.display = 'none');
+      if (!open) {
+        sub.style.display = 'block';
+        e.preventDefault();
+      }
     });
-  }
+  });
 
-  // ---- Active navigation highlight ----
-  const currentPath = window.location.pathname;
-  document.querySelectorAll('.main-nav > li').forEach(li => {
-    const link = li.querySelector('a');
-    if (link && link.getAttribute('href') === currentPath) {
-      li.classList.add('active');
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-menu')) {
+      document.querySelectorAll('.submenu').forEach(s => s.style.display = '');
     }
   });
 
