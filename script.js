@@ -1,48 +1,91 @@
+/* ===================================
+   鎌倉ねこの間 HP JavaScript
+   =================================== */
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-        threshold: 0.1
+
+  // ---- Dropdown Menu (PC hover is CSS, this adds click support) ----
+  const navItems = document.querySelectorAll('.main-nav > li');
+
+  navItems.forEach(item => {
+    const submenu = item.querySelector('.submenu');
+    if (!submenu) return;
+
+    // Touch device support
+    item.addEventListener('touchstart', (e) => {
+      const isOpen = submenu.style.display === 'block';
+      // Close all other submenus
+      document.querySelectorAll('.submenu').forEach(s => s.style.display = 'none');
+      if (!isOpen) {
+        submenu.style.display = 'block';
+        e.preventDefault();
+      }
+    });
+  });
+
+  // Close submenus when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.main-nav')) {
+      document.querySelectorAll('.submenu').forEach(s => s.style.display = '');
+    }
+  });
+
+  // ---- Image Strip: Calculate width for seamless loop ----
+  const strip = document.getElementById('imageStrip');
+  if (strip) {
+    const images = strip.querySelectorAll('img');
+    let loaded = 0;
+
+    const adjustAnimation = () => {
+      // Get the total width of the first half of images
+      const halfCount = Math.floor(images.length / 2);
+      let totalWidth = 0;
+      for (let i = 0; i < halfCount; i++) {
+        totalWidth += images[i].offsetWidth;
+      }
+
+      // Update animation to scroll exactly half the width
+      strip.style.setProperty('--strip-scroll', `-${totalWidth}px`);
+
+      // Create dynamic keyframes
+      const styleEl = document.createElement('style');
+      styleEl.textContent = `
+        @keyframes slideStrip {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-${totalWidth}px); }
+        }
+      `;
+      document.head.appendChild(styleEl);
     };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.animationPlayState = 'running';
-                entry.target.style.opacity = 1;
-            }
+    images.forEach(img => {
+      if (img.complete) {
+        loaded++;
+        if (loaded === images.length) adjustAnimation();
+      } else {
+        img.addEventListener('load', () => {
+          loaded++;
+          if (loaded === images.length) adjustAnimation();
         });
-    }, observerOptions);
-
-    document.querySelectorAll('.fade-up').forEach(el => {
-        el.style.opacity = 0;
-        observer.observe(el);
+      }
     });
+  }
 
-    // Parallax effect for glow orbs
-    document.addEventListener('mousemove', (e) => {
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
-
-        const orb1 = document.getElementById('orb1');
-        const orb2 = document.getElementById('orb2');
-
-        orb1.style.transform = `translate(${x * 50}px, ${y * 50}px)`;
-        orb2.style.transform = `translate(${-x * 50}px, ${-y * 50}px)`;
+  // ---- Smooth scroll to top ----
+  const scrollTopBtn = document.getElementById('scrollToTop');
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+  }
 
-    // Hover effect for hero image
-    const heroImg = document.getElementById('hero-img');
-    if (heroImg) {
-        heroImg.addEventListener('mousemove', (e) => {
-            const rect = heroImg.getBoundingClientRect();
-            const x = (e.clientX - rect.left) / rect.width - 0.5;
-            const y = (e.clientY - rect.top) / rect.height - 0.5;
-            
-            heroImg.style.transform = `perspective(1000px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) scale(1.05)`;
-        });
-
-        heroImg.addEventListener('mouseleave', () => {
-            heroImg.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)`;
-        });
+  // ---- Active navigation highlight ----
+  const currentPath = window.location.pathname;
+  document.querySelectorAll('.main-nav > li').forEach(li => {
+    const link = li.querySelector('a');
+    if (link && link.getAttribute('href') === currentPath) {
+      li.classList.add('active');
     }
+  });
+
 });

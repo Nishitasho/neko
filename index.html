@@ -1,77 +1,258 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neko World - Premium Cat Experience</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="鎌倉大仏近くの保護猫カフェ「鎌倉ねこの間」。古民家風の一軒家で保護猫たちと触れ合えるカフェです。">
+  <meta name="keywords" content="猫カフェ, 鎌倉, 保護猫, ねこカフェ, 古民家, 大仏, 長谷">
+  <title>鎌倉大仏近く、保護猫カフェ「鎌倉ねこの間」2016年5月オープン！｜Home</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="glow-container">
-        <div class="glow-orb" id="orb1"></div>
-        <div class="glow-orb" id="orb2"></div>
+
+<!-- ========== HEADER ========== -->
+<header class="site-header">
+  <!-- Header Info Bar -->
+  <div class="header-info-bar">
+    <div class="container">
+      <p>
+        「鎌倉ねこの間」は、鎌倉大仏より徒歩10分。鎌倉駅と藤沢駅を結ぶ江ノ電バス・京浜急行バスの「打越（うちこし）バス停」下車、徒歩３分。現在人数制限をしており完全電話予約制（0467-40-5379）です♪　
+        <span class="warning-text">注！神奈中バスの打越バス停ではありませんのでお気を付け下さい(&gt;_&lt;)</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav-bar" aria-label="メインナビゲーション">
+    <div class="container">
+      <ul class="main-nav" id="mainNav">
+        <li class="active">
+          <a href="#">HOME</a>
+          <ul class="submenu">
+            <li><a href="#">ご理解いただきたいこと</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">ねこの間のねこたち</a>
+          <ul class="submenu">
+            <li><a href="#">卒業ねこたち</a></li>
+            <li><a href="#">カフェの外の里親募集</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">料金システム&amp;利用方法</a>
+          <ul class="submenu">
+            <li><a href="#">ねこの間のルール</a></li>
+          </ul>
+        </li>
+        <li><a href="#">メニュー</a></li>
+        <li><a href="#">ペット保険について</a></li>
+        <li><a href="#">アクセス</a></li>
+        <li><a href="#">保護猫の受け入れについて</a></li>
+        <li><a href="#">トピックス</a></li>
+        <li><a href="#">譲渡について</a></li>
+        <li><a href="#">お問い合わせ</a></li>
+        <li><a href="#">English　Chinese</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Image Strip -->
+  <div class="image-strip">
+    <div class="image-strip-inner" id="imageStrip">
+      <img src="img-interior.png" alt="古民家風の店内">
+      <img src="img-cats.png" alt="くつろぐ保護猫たち">
+      <img src="img-exterior.png" alt="緑に囲まれた外観">
+      <img src="img-tea.png" alt="ハーブティーと猫">
+      <img src="img-catwalk.png" alt="梁の上の猫たち">
+      <!-- duplicate for seamless loop -->
+      <img src="img-interior.png" alt="古民家風の店内">
+      <img src="img-cats.png" alt="くつろぐ保護猫たち">
+      <img src="img-exterior.png" alt="緑に囲まれた外観">
+      <img src="img-tea.png" alt="ハーブティーと猫">
+      <img src="img-catwalk.png" alt="梁の上の猫たち">
+    </div>
+  </div>
+</header>
+
+<!-- ========== MAIN CONTENT ========== -->
+<main class="main-content">
+  <!-- Page Title -->
+  <h1 class="page-title">緑の中の古民家風保護猫カフェ「鎌倉ねこの間」へようこそ！</h1>
+
+  <!-- Subtitle / Description -->
+  <p class="page-subtitle">
+    「鎌倉ねこの間」は、鎌倉大仏の高徳院にほど近い、山間の静かな住宅地にある古民家風の一軒家。無垢材を使った床や階段、古材の太い梁でできたキャットウォーク、ニオイを吸収してくれる珪藻土壁に囲まれた開放的な空間です。ここでのんびり暮らす保護猫たちを眺めながら、香り豊かなハーブティ、スリランカ紅茶専門店ティーレンテの紅茶、お抹茶やコーヒーなどをお楽しみいただけます。
+  </p>
+
+  <!-- Two Column Layout -->
+  <div class="content-layout">
+    <!-- Left Column -->
+    <div class="content-left">
+
+      <div class="content-section">
+        <h3>玄関から梁までの高低差、約６メートル。「ねこの間」は猫たちの遊び場。</h3>
+        <p>
+          アニマルウェルフェアの考えに基づき、ここでは保護されるまでつらい経験をしてきた猫たちにストレスなく暮らしてほしいと考えました。「ねこの間」の猫たちは、１階から２階（喫茶スペース）への吹き抜け階段、２階からハシゴを上ってロフトへ、その先の梁へと、実に６ｍの高低差を自由に昇り降りできます。梁の上で追いかけっこしたり、大窓からバードウォッチングしたりする彼らの姿を、ぜひ見に来てください。
+        </p>
+        <p>
+          保護猫を家族として迎え入れたい方はもちろん、一般的な猫カフェとして、お散歩がてら、また鎌倉観光ついでに、ぜひお立ち寄りください。
+        </p>
+        <p>
+          ※鎌倉ねこの間は、保護された猫の譲渡をしている保護猫カフェであり、原則的に保護はしておりません。外猫のことでご相談がある際は「この子が譲渡されるまで私が責任を負う」という覚悟のある方のみ、ご連絡ください。
+        </p>
+      </div>
+
+      <div class="content-section">
+        <p class="important-text">
+          【お知らせ】<br>
+          引き続き、完全電話予約制です（0467－40－5379）。<br>
+          靴下は必ず着用してください。
+        </p>
+      </div>
+
+      <div class="content-section">
+        <p>
+          ★鎌倉ねこの間がオープンより現在までに譲渡した保護猫は、カフェ猫232頭、カフェの外の猫285頭（動物病院、預かりボランティア宅や保護主宅にいる）計517頭となりました（2026,4,17現在）。
+        </p>
+        <p>
+          常時お問い合わせは受け付けますが、必ずトライアルに結び付くとは限りません。またご予約いただいても猫の出入り状況によりトライアルまでお待たせする可能性があります。希望される方は、来店時にスタッフまでお声かけてください。
+        </p>
+      </div>
+
+      <div class="content-section">
+        <p>【ご支援のお願い】</p>
+        <p>
+          ねこの間の保護猫活動を応援してくださる皆様、いつも本当にありがとうございます。皆様のあたたかいご支援のおかげで、コロナ禍に加え、TNR（トータル130頭以上）にかかる医療費も賄うことができました。心より感謝申し上げます。ご無理のない範囲で今後ともご支援いただけますと大変ありがたく存じます。
+        </p>
+        <p class="bank-info">
+          銀行名　：横浜銀行<br>
+          支店名　：大船支店（店番号512）<br>
+          口座番号：普通　６１６９３７０<br>
+          口座名義：鎌倉ねこの間　永田久美子
+        </p>
+        <p class="paypal-info">
+          手数料のかからないPayPayでのご寄付も受け付けています。<br>
+          PayPay ID:kumikuma9079
+        </p>
+      </div>
+
+      <div class="content-section">
+        <p>※物資でのご支援はこのページの右にある赤いボタン、【欲しいものリストボタン】よりお願いいたします。</p>
+      </div>
+
+      <div class="content-section">
+        <p>
+          ★鎌倉ねこの間ではInstagramをはじめ、facebook、x（旧twitter）にてほぼ毎日猫の情報や臨時休業等のお知らせをアップしております。よろしければ↓アイコンよりぜひフォローをお願い致します。
+        </p>
+      </div>
+
+      <div class="content-section business-info">
+        <p>◆営業時間:11：00～17:00（ラストオーダー16：30）</p>
+        <p>◆定休日 :毎週月・火曜日（定休日が祝日の場合は休まず営業。</p>
+        <p>※やむをえず臨時休業する場合があります。事前にInstagram等をチェックし、ご予約のお電話をお願いいたします。</p>
+        <p class="phone-number" style="margin-top:8px;">お問合せ・ご予約は「鎌倉ねこの間」まで。☎0467-40-5379</p>
+      </div>
+
+      <!-- Info Box (SNS + text) -->
+      <div class="info-box">
+        <div class="sns-icons-row">
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/kamakura_nekonoma/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/kamakuranekonoma/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <!-- X (Twitter) -->
+          <a href="https://twitter.com/kamakuranekonom" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <!-- LINE -->
+          <a href="#" aria-label="LINE">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645.585-.24 3.15-1.862 4.3-3.188C22.325 17.357 24 14.019 24 10.314"/></svg>
+          </a>
+        </div>
+        <p class="info-box-text">
+          鎌倉ねこの間のSNSアカウント<br>
+          フォローよろしくお願いします♪
+        </p>
+      </div>
+
+      <!-- Credit Button -->
+      <a href="#" class="credit-btn">Wix.comで作成</a>
+
     </div>
 
-    <nav>
-        <div class="logo">NEKO<span>.</span></div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#about">About</a></li>
-        </ul>
-        <button class="cta-btn">Join Now</button>
-    </nav>
+    <!-- Right Column (Sidebar) -->
+    <div class="content-right">
+      <img src="img-exterior.png" alt="鎌倉ねこの間 外観" class="sidebar-image">
 
-    <main id="home">
-        <section class="hero">
-            <div class="hero-content">
-                <h1 class="fade-in">Discover the <br><span class="gradient-text">Magic of Cats</span></h1>
-                <p class="fade-in">Experience a world of elegance, curiosity, and comfort. Welcome to the ultimate sanctuary for cat lovers.</p>
-                <div class="hero-btns fade-in">
-                    <button class="primary-btn">Explore More</button>
-                    <button class="secondary-btn">Watch Video</button>
-                </div>
-            </div>
-            <div class="hero-image-container fade-in">
-                <div class="image-wrapper">
-                    <img src="cat-hero.png" alt="Beautiful Majestic Cat" id="hero-img">
-                    <div class="image-badge">✨ Premium</div>
-                </div>
-            </div>
-        </section>
+      <img src="img-tea.png" alt="ドリンクメニュー" class="sidebar-image">
 
-        <section id="gallery" class="features">
-            <div class="section-title">
-                <h2>Our Gallery</h2>
-                <p>A glimpse into the life of elegance.</p>
-            </div>
-            <div class="grid">
-                <div class="card fade-up">
-                    <div class="card-icon">🐾</div>
-                    <h3>Elegant Steps</h3>
-                    <p>Graceful movements that define the feline spirit.</p>
-                </div>
-                <div class="card fade-up" style="animation-delay: 0.2s;">
-                    <div class="card-icon">🌙</div>
-                    <h3>Midnight Prowl</h3>
-                    <p>Capturing the mystery of the night hunters.</p>
-                </div>
-                <div class="card fade-up" style="animation-delay: 0.4s;">
-                    <div class="card-icon">💖</div>
-                    <h3>Infinite Love</h3>
-                    <p>The silent bond that lasts a lifetime.</p>
-                </div>
-            </div>
-        </section>
-    </main>
+      <img src="img-catwalk.png" alt="キャットウォーク" class="sidebar-image">
 
-    <footer>
-        <p>&copy; 2026 Neko World. Crafted with ✨ by Antigravity</p>
-    </footer>
+      <!-- Amazon Wishlist Button -->
+      <button class="wishlist-btn" onclick="window.open('https://www.amazon.co.jp/hz/wishlist/ls/DLUNBM5GDQKL', '_blank')">
+        AMAZON<br>欲しいものリスト
+      </button>
 
-    <script src="script.js"></script>
+      <!-- Schedule/Calendar Image (placeholder) -->
+      <div style="background:#f5f0eb; border:1px solid #ddd; padding:20px; margin-bottom:24px; text-align:center;">
+        <p style="font-size:18px; font-weight:700; color:#401e1d; margin-bottom:12px;">📅 営業カレンダー</p>
+        <p style="font-size:14px; color:#666; line-height:1.8;">
+          定休日：毎週月・火曜日<br>
+          営業時間：11:00〜17:00<br>
+          ラストオーダー：16:30<br>
+          <br>
+          ※祝日の場合は営業<br>
+          ※臨時休業あり（SNSでご確認ください）
+        </p>
+      </div>
+
+      <!-- Map placeholder -->
+      <div style="background:#f5f0eb; border:1px solid #ddd; padding:20px; margin-bottom:24px; text-align:center;">
+        <p style="font-size:16px; font-weight:700; color:#401e1d; margin-bottom:8px;">📍 アクセス</p>
+        <p style="font-size:13px; color:#666; line-height:1.8;">
+          〒248-0000<br>
+          神奈川県鎌倉市長谷<br>
+          打越バス停より徒歩3分<br>
+          鎌倉大仏より徒歩10分
+        </p>
+      </div>
+
+      <!-- SNS icons sidebar -->
+      <div class="sns-section">
+        <div class="sns-icons">
+          <a href="https://www.instagram.com/kamakura_nekonoma/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="background:#E1306C;">
+            <svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/kamakuranekonoma/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style="background:#1877F2;">
+            <svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://twitter.com/kamakuranekonom" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" style="background:#000;">
+            <svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-title">鎌倉ねこの間</p>
+    <p class="footer-text">
+      ©2016-2026 鎌倉ねこの間<br>
+      〒248-0000 神奈川県鎌倉市長谷<br>
+      TEL: 0467-40-5379
+    </p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
