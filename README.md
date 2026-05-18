@@ -1,6 +1,6 @@
 # こもれび猫の間 静的サイト
 
-保護猫カフェ向けの静的HTML/CSS/JavaScriptサイトです。Cloudflare Pagesでそのまま配信できます。
+保護猫カフェ向けの静的HTML/CSS/JavaScriptサイトです。GitHub Pagesのプロジェクトサイト配信とCloudflare Pages配信に対応しています。
 
 ## URL
 
@@ -26,6 +26,10 @@
 ## Cloudflare Pages
 
 ビルドコマンドは不要です。出力ディレクトリはリポジトリルートを指定してください。
+
+## GitHub Pages
+
+`https://nishita-gp1111.github.io/neko/`のようなリポジトリ名付きURLでもCSS、JavaScript、画像、内部リンクが解決されるようにしています。
 
 ## お問い合わせフォーム
 

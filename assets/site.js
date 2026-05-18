@@ -13,6 +13,10 @@ const navItems = [
   ["お問い合わせ", "/contact/"],
 ];
 
+const siteRoot = location.pathname.startsWith("/neko/") || location.pathname === "/neko" ? "/neko" : "";
+const toUrl = (path) => `${siteRoot}${path}`;
+const toAsset = (path) => toUrl(path);
+
 const cats = [
   {
     slug: "mugi",
@@ -116,7 +120,8 @@ const pageCards = [
 ];
 
 function isActive(href) {
-  const path = location.pathname.endsWith("/") ? location.pathname : `${location.pathname}/`;
+  const pathname = siteRoot ? location.pathname.replace(siteRoot, "") || "/" : location.pathname;
+  const path = pathname.endsWith("/") ? pathname : `${pathname}/`;
   return href === "/" ? path === "/" : path.startsWith(href);
 }
 
@@ -125,13 +130,13 @@ function initChrome() {
   const footer = document.querySelector("[data-footer]");
   if (header) {
     header.innerHTML = `
-      <a class="brand" href="/" aria-label="HOMEへ">
+      <a class="brand" href="${toUrl("/")}" aria-label="HOMEへ">
         <span class="brand-mark">猫</span>
         <span><strong>こもれび猫の間</strong><small>保護猫カフェ</small></span>
       </a>
       <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false">☰</button>
       <nav class="site-nav" aria-label="グローバルナビ">
-        ${navItems.map(([label, href]) => `<a class="${isActive(href) ? "active" : ""}" href="${href}">${label}</a>`).join("")}
+        ${navItems.map(([label, href]) => `<a class="${isActive(href) ? "active" : ""}" href="${toUrl(href)}">${label}</a>`).join("")}
       </nav>`;
     const toggle = header.querySelector(".menu-toggle");
     const nav = header.querySelector(".site-nav");
@@ -164,11 +169,11 @@ function initChrome() {
         </section>
       </div>
       <div class="footer-links">
-        ${navItems.map(([label, href]) => `<a href="${href}">${label}</a>`).join("")}
+        ${navItems.map(([label, href]) => `<a href="${toUrl(href)}">${label}</a>`).join("")}
         <a href="https://www.google.com/maps/search/?api=1&query=%E9%8E%8C%E5%80%89%20%E7%8C%AB%E3%82%AB%E3%83%95%E3%82%A7" target="_blank" rel="noreferrer">Google Map</a>
       </div>
       <div class="footer-bottom">
-        <a class="button small" href="/contact/">お問い合わせ・予約相談</a>
+        <a class="button small" href="${toUrl("/contact/")}">お問い合わせ・予約相談</a>
         <p>Copyright © 2026 こもれび猫の間. All Rights Reserved.</p>
       </div>`;
   }
@@ -179,8 +184,8 @@ function renderCatList(limit) {
   if (!root) return;
   root.innerHTML = cats.slice(0, limit || cats.length).map(cat => `
     <article class="cat-card">
-      <a href="/cats/${cat.slug}/" aria-label="${cat.name}の詳細へ">
-        <img src="${cat.image}" alt="${cat.name}">
+      <a href="${toUrl(`/cats/${cat.slug}/`)}" aria-label="${cat.name}の詳細へ">
+        <img src="${toAsset(cat.image)}" alt="${cat.name}">
         <div class="cat-card-body">
           <h2>${cat.name}</h2>
           <dl>
@@ -202,7 +207,7 @@ function renderCatDetail() {
   const index = cats.findIndex(cat => cat.slug === slug);
   const cat = cats[index];
   if (!cat) {
-    root.innerHTML = `<section class="section narrow"><h1>猫が見つかりません</h1><p>一覧からもう一度お選びください。</p><a class="button" href="/cats/">一覧へ戻る</a></section>`;
+    root.innerHTML = `<section class="section narrow"><h1>猫が見つかりません</h1><p>一覧からもう一度お選びください。</p><a class="button" href="${toUrl("/cats/")}">一覧へ戻る</a></section>`;
     return;
   }
   const prev = cats[(index - 1 + cats.length) % cats.length];
@@ -210,9 +215,9 @@ function renderCatDetail() {
   document.title = `${cat.name} | こもれび猫の間`;
   root.innerHTML = `
     <section class="section detail">
-      <a class="back-link" href="/cats/">← ねこたち一覧へ戻る</a>
+      <a class="back-link" href="${toUrl("/cats/")}">← ねこたち一覧へ戻る</a>
       <div class="detail-grid">
-        <img class="detail-image" src="${cat.image}" alt="${cat.name}">
+        <img class="detail-image" src="${toAsset(cat.image)}" alt="${cat.name}">
         <div>
           <p class="eyebrow">Resident Cat</p>
           <h1>${cat.name}</h1>
@@ -235,9 +240,9 @@ function renderCatDetail() {
         <section><h2>ひとこと紹介</h2><p>${cat.note}</p></section>
       </div>
       <nav class="pager" aria-label="猫詳細ページの移動">
-        <a href="/cats/${prev.slug}/">前の猫<br><strong>${prev.name}</strong></a>
-        <a href="/cats/">一覧へ戻る</a>
-        <a href="/cats/${next.slug}/">次の猫<br><strong>${next.name}</strong></a>
+        <a href="${toUrl(`/cats/${prev.slug}/`)}">前の猫<br><strong>${prev.name}</strong></a>
+        <a href="${toUrl("/cats/")}">一覧へ戻る</a>
+        <a href="${toUrl(`/cats/${next.slug}/`)}">次の猫<br><strong>${next.name}</strong></a>
       </nav>
     </section>`;
 }
@@ -247,14 +252,14 @@ function renderCards() {
   if (!root) return;
   root.innerHTML = pageCards.map(([title, href, text, image]) => `
     <article class="route-card">
-      <a href="${href}">
-        <img src="${image}" alt="">
+      <a href="${toUrl(href)}">
+        <img src="${toAsset(image)}" alt="">
         <div>
           <h3>${title}</h3>
           <p>${text}</p>
-          <span class="text-link">詳しく見る</span>
-        </div>
-      </a>
+        <span class="text-link">詳しく見る</span>
+      </div>
+    </a>
     </article>`).join("");
 }
 
