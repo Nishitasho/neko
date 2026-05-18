@@ -63,6 +63,20 @@ img { display: block; max-width: 100%; }
 .hero-content { width: min(760px, 100%); }
 .hero .eyebrow { color: #f6e9c8; }
 
+.top-photo-section {
+  padding: clamp(24px, 5vw, 58px) clamp(20px, 5vw, 72px) 0;
+  background: var(--paper);
+}
+.top-photo-section img {
+  width: min(1080px, 100%);
+  max-height: 720px;
+  margin: 0 auto;
+  object-fit: contain;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  background: var(--cream);
+}
+
 h1, h2, h3 { line-height: 1.35; margin: 0 0 .65em; font-weight: 600; }
 h1 { font-size: clamp(34px, 7vw, 66px); }
 .page-title { font-size: clamp(30px, 5vw, 54px); }
@@ -99,6 +113,10 @@ h1 { font-size: clamp(34px, 7vw, 66px); }
 .button.ghost { background: #fff; color: var(--leaf-dark); }
 .text-link { color: var(--leaf-dark); font-family: "Hiragino Sans", "Noto Sans JP", sans-serif; font-weight: 700; border-bottom: 1px solid currentColor; }
 
+.embed-panel {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
 .calendar-frame, .map-embed {
   width: 100%;
   min-height: 520px;
