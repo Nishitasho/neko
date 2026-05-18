@@ -60,16 +60,6 @@ function initChrome() {
   }
   if (footer) {
     footer.innerHTML = `
-      <section class="common-cta" aria-label="予約とお問い合わせ">
-        <p class="eyebrow">Reservation & Contact</p>
-        <h2>ご来店前にご連絡ください</h2>
-        <p>ご予約はEメールのみでお願いいたします。<br>その他のお問い合わせは、お電話またはEメールでお願いいたします。</p>
-        <div class="button-row center">
-          <a class="button" href="mailto:${email}?subject=%E6%9D%A5%E5%BA%97%E4%BA%88%E7%B4%84%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">Eメールで予約する</a>
-          <a class="button secondary" href="tel:${tel.replaceAll("-", "")}">電話で問い合わせる</a>
-          <a class="button ghost" href="${toUrl("/contact-access/#access")}">アクセスを見る</a>
-        </div>
-      </section>
       <div class="footer-grid">
         <section>
           <h2>鎌倉ねこの間</h2>
