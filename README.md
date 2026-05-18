@@ -1,52 +1,45 @@
-# こもれび猫の間 静的サイト
+# 鎌倉ねこの間 6ページ構成サイト
 
-保護猫カフェ向けの静的HTML/CSS/JavaScriptサイトです。GitHub Pagesのプロジェクトサイト配信とCloudflare Pages配信に対応しています。
+保護猫カフェ向けの静的HTML/CSS/JavaScriptサイトです。GitHub Pagesのプロジェクトサイト配信、Cloudflare Pages配信に対応しています。
 
-## URL
+## ページ構成
 
 - `/`
-- `/about`
-- `/cats`
-- `/cats/mugi`
-- `/cats/suzu`
-- `/cats/yuzu`
-- `/cats/hana`
-- `/cats/kohaku`
-- `/cats/rin`
-- `/graduates`
-- `/price-guide`
-- `/rules`
-- `/menu`
-- `/access`
-- `/rescue-policy`
-- `/topics`
-- `/adoption`
-- `/contact`
+- `/price-menu/`
+- `/pet-insurance/`
+- `/adoption/`
+- `/rescue-policy/`
+- `/contact-access/`
 
-## Cloudflare Pages
+全ページのヘッダーとフッター導線は上記6ページに統一しています。
 
-ビルドコマンドは不要です。出力ディレクトリはリポジトリルートを指定してください。
+## 予約・お問い合わせ
 
-## GitHub Pages
+- 予約: Eメールのみ
+- その他問い合わせ: 電話またはEメール
+- Eメール: `kamakuranekonoma@gmail.com`
+- 電話: `0467-40-5379`
 
-`https://nishita-gp1111.github.io/neko/`のようなリポジトリ名付きURLでもCSS、JavaScript、画像、内部リンクが解決されるようにしています。
+## Googleカレンダー
 
-## お問い合わせフォーム
-
-`contact/index.html`のフォーム送信先をFormspreeのエンドポイントに差し替えてください。
+TOPページに以下のGoogleカレンダーiframeを設置しています。
 
 ```html
-<form action="https://formspree.io/f/あなたのフォームID" method="POST" data-contact-form>
+<iframe src="https://calendar.google.com/calendar/embed?src=kamakuranekonoma%40gmail.com&ctz=Asia%2FTokyo" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
 ```
 
-ローカル確認用に、初期値が`https://formspree.io/f/example`のままの場合は送信せず「お問い合わせありがとうございます。」を表示します。
+## 差し替えが必要な箇所
 
-## 画像差し替え
+- ペット保険ページのアニコム本文
+- ペット保険ページの新バナー画像
+- 譲渡についてページの提供本文
+- 料金、利用時間、メニューの確定情報
 
-画像は`assets/images/`配下に整理しています。
+提供原稿がある箇所は、受領後に一字一句削らず掲載してください。
 
-- `assets/images/site/hero.jpg`: HOMEメインビジュアル
-- `assets/images/site/`: 店内、コンセプト、SNS、アクセス周辺
-- `assets/images/cats/`: 猫一覧・詳細ページ
+## 画像管理
 
-猫プロフィールは`assets/site.js`の`cats`配列で編集できます。
+- `assets/images/site/`: メインビジュアル、店内、SNS、アクセスなど
+- `assets/images/cats/`: 猫紹介カード用画像
+
+参考サイトや外部サイトの画像は使用していません。

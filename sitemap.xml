@@ -1,21 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://nishita-gp1111.github.io/neko/</loc></url>
-  <url><loc>https://nishita-gp1111.github.io/neko/about/</loc></url>
-  <url><loc>https://nishita-gp1111.github.io/neko/cats/</loc></url>
-  <url><loc>https://nishita-gp1111.github.io/neko/cats/mugi/</loc></url>
-  <url><loc>https://nishita-gp1111.github.io/neko/cats/suzu/</loc></url>
-  <url><loc>https://nishita-gp1111.github.io/neko/cats/yuzu/</loc></url>
-  <url><loc>https://nishita-gp1111.github.io/neko/cats/hana/</loc></url>
-  <url><loc>https://nishita-gp1111.github.io/neko/cats/kohaku/</loc></url>
-  <url><loc>https://nishita-gp1111.github.io/neko/cats/rin/</loc></url>
-  <url><loc>https://nishita-gp1111.github.io/neko/graduates/</loc></url>
-  <url><loc>https://nishita-gp1111.github.io/neko/price-guide/</loc></url>
-  <url><loc>https://nishita-gp1111.github.io/neko/rules/</loc></url>
-  <url><loc>https://nishita-gp1111.github.io/neko/menu/</loc></url>
-  <url><loc>https://nishita-gp1111.github.io/neko/access/</loc></url>
-  <url><loc>https://nishita-gp1111.github.io/neko/rescue-policy/</loc></url>
-  <url><loc>https://nishita-gp1111.github.io/neko/topics/</loc></url>
+  <url><loc>https://nishita-gp1111.github.io/neko/price-menu/</loc></url>
+  <url><loc>https://nishita-gp1111.github.io/neko/pet-insurance/</loc></url>
   <url><loc>https://nishita-gp1111.github.io/neko/adoption/</loc></url>
-  <url><loc>https://nishita-gp1111.github.io/neko/contact/</loc></url>
+  <url><loc>https://nishita-gp1111.github.io/neko/rescue-policy/</loc></url>
+  <url><loc>https://nishita-gp1111.github.io/neko/contact-access/</loc></url>
 </urlset>
