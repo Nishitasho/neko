@@ -12,7 +12,14 @@ const toUrl = (path) => `${siteRoot}${path}`;
 const toAsset = (path) => toUrl(path);
 const email = "kamakuranekonoma@gmail.com";
 const tel = "0467-40-5379";
-const instagramUrl = "https://www.instagram.com/kamakuranekonoma/";
+const instagramUrl = "https://www.instagram.com/kamakuranekonoma/?hl=ja";
+const socialLinks = [
+  ["Instagram", instagramUrl, "ig"],
+  ["YouTube", "https://www.youtube.com/channel/UCP6MHJTVFkZbf1p8spsgJxw", "yt"],
+  ["X", "https://x.com/kumikuma0510", "x"],
+  ["Facebook", "https://www.facebook.com/kamakuranekonoma", "fb"],
+  ["Threads", "https://www.threads.com/@kamakuranekonoma", "th"],
+];
 
 const cats = [
   ["トラ店長", "/assets/images/cats/mugi.jpg", "みんなを見守る落ち着いた店長。初めての方にもやさしい存在です。"],
@@ -71,7 +78,7 @@ function initChrome() {
         </section>
         <section>
           <h2>SNS</h2>
-          <p><a href="${instagramUrl}" target="_blank" rel="noreferrer">Instagram</a></p>
+          ${renderSocialLinks()}
         </section>
       </div>
       <div class="footer-links">
@@ -79,6 +86,23 @@ function initChrome() {
       </div>
       <p class="copyright">Copyright © 鎌倉ねこの間. All Rights Reserved.</p>`;
   }
+}
+
+function renderSocialLinks() {
+  const icons = {
+    ig: "◎",
+    yt: "▶",
+    x: "𝕏",
+    fb: "f",
+    th: "@",
+  };
+  return `
+    <div class="social-follow" aria-label="SNSリンク">
+      <div class="social-icons">
+        ${socialLinks.map(([label, href, key]) => `<a class="social-icon ${key}" href="${href}" target="_blank" rel="noreferrer" aria-label="${label}">${icons[key]}</a>`).join("")}
+      </div>
+      <p>FOLLOW US</p>
+    </div>`;
 }
 
 function renderCats() {
@@ -109,3 +133,7 @@ function initMailLinks() {
 initChrome();
 renderCats();
 initMailLinks();
+
+document.querySelectorAll("[data-social-links]").forEach((root) => {
+  root.innerHTML = renderSocialLinks();
+});
