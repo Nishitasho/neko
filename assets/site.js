@@ -51,7 +51,7 @@ function initChrome() {
     header.innerHTML = `
       <a class="brand" href="${toUrl("/")}" aria-label="TOPへ">
         <span class="brand-mark">猫</span>
-        <span><strong>鎌倉ねこの間</strong><small>保護猫カフェ</small></span>
+        <span><strong>鎌倉ねこの間</strong><small>譲渡型保護猫カフェ</small></span>
       </a>
       <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false">☰</button>
       <nav class="site-nav" aria-label="グローバルナビ">
