@@ -22,8 +22,8 @@ const socialLinks = [
 ];
 
 const cats = [
-  ["トラ店長", "/assets/images/cats/mugi.jpg", "みんなを見守る落ち着いた店長。初めての方にもやさしい存在です。"],
-  ["シマ副店長", "/assets/images/cats/suzu.jpg", "遊びの時間を知らせてくれる、明るい副店長です。"],
+  ["トラ店長", "/assets/images/cats/tora.jpg", "みんなを見守るボスの父親役でもあり教育係。2016年2月25日生まれのオス。トラの指導によりみんないい子に育ちます。"],
+  ["しま副店長", "/assets/images/cats/shima.jpg", "2016年10月生まれのオス。トラを支え、サポートする優しい母親役ような男の子。"],
   ["むぎ", "/assets/images/cats/yuzu.jpg", "窓辺が好きな甘えんぼ。静かな時間にそっと寄り添います。"],
   ["はな", "/assets/images/cats/hana.jpg", "自分のペースを大切にする、日だまりの似合う子です。"],
   ["こはく", "/assets/images/cats/kohaku.jpg", "好奇心いっぱい。毎日いろいろな場所を探検しています。"],
