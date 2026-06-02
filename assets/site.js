@@ -24,14 +24,17 @@ const socialLinks = [
 const cats = [
   ["トラ店長", "/assets/images/cats/tora.jpg", "みんなを見守るボスの父親役でもあり教育係。2016年2月25日生まれのオス。トラの指導によりみんないい子に育ちます。"],
   ["しま副店長", "/assets/images/cats/shima.jpg", "2016年10月生まれのオス。トラを支え、サポートする優しい母親役ような男の子。"],
-  ["むぎ", "/assets/images/cats/yuzu.jpg", "窓辺が好きな甘えんぼ。静かな時間にそっと寄り添います。"],
-  ["はな", "/assets/images/cats/hana.jpg", "自分のペースを大切にする、日だまりの似合う子です。"],
-  ["こはく", "/assets/images/cats/kohaku.jpg", "好奇心いっぱい。毎日いろいろな場所を探検しています。"],
-  ["りん", "/assets/images/cats/rin.jpg", "深い瞳が魅力の黒猫。ゆっくり仲良くなれる子です。"],
-  ["あん", "/assets/images/site/concept.jpg", "なでられるのが好きな穏やかな子。お昼寝上手です。"],
-  ["そら", "/assets/images/site/interior.jpg", "高いところから店内を眺めるのが好きな見守り役です。"],
-  ["つき", "/assets/images/site/graduates.jpg", "少し慎重だけれど、慣れると小さく挨拶してくれます。"],
-  ["まめ", "/assets/images/site/sns.jpg", "じゃらしを見ると目がきらり。遊び好きな若い子です。"],
+];
+
+const catGallery = [
+  ["/assets/images/cats/yuzu.jpg", "窓辺で過ごす保護猫"],
+  ["/assets/images/cats/hana.jpg", "店内でくつろぐ保護猫"],
+  ["/assets/images/cats/kohaku.jpg", "日差しの中の保護猫"],
+  ["/assets/images/cats/rin.jpg", "静かに過ごす保護猫"],
+  ["/assets/images/cats/mugi.jpg", "譲渡対象猫のイメージ"],
+  ["/assets/images/cats/suzu.jpg", "眠る保護猫"],
+  ["/assets/images/site/concept.jpg", "梁の上で過ごす猫"],
+  ["/assets/images/site/sns.jpg", "保護猫たちのいる店内"],
 ];
 
 function currentPath() {
@@ -70,7 +73,13 @@ function initChrome() {
       <div class="footer-grid">
         <section>
           <h2>鎌倉ねこの間</h2>
-          <p>緑の中の古民家風保護猫カフェ。猫たちの体調と気持ちを大切にしながら営業しています。</p>
+          <p>緑の中の古民家風保護猫カフェ。保護猫たちの体調と気持ちを大切にしながら営業しています。</p>
+          <dl class="footer-license" aria-label="動物取扱標識">
+            <div><dt>動物取扱標識</dt><dd>名称：鎌倉ねこの間 / 種別：展示</dd></div>
+            <div><dt>登録番号</dt><dd>第250372号</dd></div>
+            <div><dt>登録年月日</dt><dd>2026年3月27日～2031年4月19日</dd></div>
+            <div><dt>動物取扱責任者</dt><dd>永田久美子</dd></div>
+          </dl>
         </section>
         <section>
           <h2>お問い合わせ</h2>
@@ -108,15 +117,28 @@ function renderSocialLinks() {
 function renderCats() {
   const root = document.querySelector("[data-cat-cards]");
   if (!root) return;
-  root.innerHTML = cats.map(([name, image, text]) => `
-    <article class="cat-card">
-      <img src="${toAsset(image)}" alt="${name}">
-      <div>
-        <h3>${name}</h3>
-        <p>${text}</p>
-        <a class="text-link" href="${instagramUrl}" target="_blank" rel="noreferrer">Instagramを見る</a>
+  root.innerHTML = `
+    <div class="cat-feature-grid">
+      ${cats.map(([name, image, text]) => `
+        <article class="cat-card featured-cat">
+          <img src="${toAsset(image)}" alt="${name}">
+          <div>
+            <h3>${name}</h3>
+            <p>${text}</p>
+            <a class="text-link" href="${instagramUrl}" target="_blank" rel="noreferrer">Instagramを見る</a>
+          </div>
+        </article>`).join("")}
+    </div>
+    <section class="adoptable-gallery" aria-label="譲渡対象猫のイメージギャラリー">
+      <div class="gallery-copy">
+        <p class="eyebrow">Adoptable Cats</p>
+        <h3>譲渡対象の保護猫たちは日々入れ替わります</h3>
+        <p>その時々で出会える保護猫たちは変わります。性格も過ごし方もそれぞれ違う、いろいろな保護猫たちの雰囲気を写真でご覧ください。</p>
       </div>
-    </article>`).join("");
+      <div class="cat-photo-gallery">
+        ${catGallery.map(([image, alt]) => `<img src="${toAsset(image)}" alt="${alt}">`).join("")}
+      </div>
+    </section>`;
 }
 
 function initMailLinks() {
