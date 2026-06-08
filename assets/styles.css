@@ -539,12 +539,34 @@ h1 { font-size: clamp(34px, 7vw, 66px); }
   color: #8b5850;
   letter-spacing: .08em;
 }
+.tea-info {
+  margin: 6px 0 28px;
+  font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+}
+.tea-name {
+  margin: 0 0 10px;
+  color: #a20d0d;
+  font-weight: 800;
+}
+.tea-site {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  color: #4a3621;
+  letter-spacing: .12em;
+}
+.tea-site a {
+  color: #4a3621;
+  font-weight: 800;
+  letter-spacing: 0;
+}
 .drink-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 250px;
-  gap: 34px;
+  grid-template-columns: minmax(240px, 300px) minmax(240px, 280px);
+  gap: clamp(36px, 8vw, 92px);
   align-items: start;
-  margin: 34px 0 42px;
+  margin: 28px 0 42px;
 }
 .hot-drinks dl,
 .cold-drinks dl {
@@ -567,11 +589,15 @@ h1 { font-size: clamp(34px, 7vw, 66px); }
   margin: 0;
   font-weight: 700;
 }
+.hot-drinks dt,
+.hot-drinks dd {
+  color: #b31a1a;
+}
 .hot-drinks img {
-  width: min(300px, 100%);
+  width: min(280px, 100%);
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  margin-top: 18px;
+  margin-top: 22px;
   box-shadow: 0 10px 24px rgba(70, 48, 31, .15);
 }
 .cold-drinks,
@@ -584,6 +610,20 @@ h1 { font-size: clamp(34px, 7vw, 66px); }
 .cold-drinks h3 {
   color: #1b57a6;
   font-size: 20px;
+}
+.cold-drinks {
+  padding: 22px 24px;
+}
+.cold-drinks dt {
+  color: #4a241f;
+  font-weight: 800;
+}
+.cold-drinks p {
+  margin: 26px 0 0;
+  color: #4a241f;
+  font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+  font-weight: 800;
+  line-height: 1.65;
 }
 .dessert-grid {
   display: grid;
