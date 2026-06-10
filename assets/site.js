@@ -73,7 +73,7 @@ function initChrome() {
       <div class="footer-grid">
         <section>
           <h2>鎌倉ねこの間</h2>
-          <p>緑の中の古民家風保護猫カフェ。保護猫たちの体調と気持ちを大切にしながら営業しています。</p>
+          <p>緑の中の古民家風保護猫カフェ。保護猫たちにストレスの無いよう配慮しつつ営業しています。</p>
           <dl class="footer-license" aria-label="動物取扱標識">
             <div><dt>動物取扱標識</dt><dd>名称：鎌倉ねこの間 / 種別：展示</dd></div>
             <div><dt>登録番号</dt><dd>第250372号</dd></div>
@@ -152,6 +152,62 @@ function initMailLinks() {
   });
 }
 
+function initAtmosphere() {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion || !("IntersectionObserver" in window)) return;
+
+  document.documentElement.classList.add("motion-ready");
+
+  const selectors = [
+    ".page-hero > *",
+    ".hero-content > *",
+    ".section-head",
+    ".split > *",
+    ".card-grid > *",
+    ".cat-feature-grid > *",
+    ".adoptable-gallery > *",
+    ".about-story > *",
+    ".notice-grid > *",
+    ".support-box > *",
+    ".instagram-panel > *",
+    ".home-banners > *",
+    ".price-system-layout > *",
+    ".howto-list > *",
+    ".drink-layout > *",
+    ".dessert-grid > *",
+    ".reading-box",
+    ".contact-panel",
+    ".adoption-flow > *",
+    ".adoption-notes > *",
+    ".rescue-flow > *",
+    ".rescue-checks > *",
+    ".access-note",
+    ".access-summary > *",
+    ".embed-panel",
+    ".contact-shop-inner > *",
+    ".footer-grid > *",
+  ];
+
+  const targets = [...new Set(document.querySelectorAll(selectors.join(",")))];
+  targets.forEach((element, index) => {
+    element.classList.add("reveal-item");
+    element.style.setProperty("--reveal-delay", `${Math.min(index % 4, 3) * 55}ms`);
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    });
+  }, {
+    threshold: 0.08,
+    rootMargin: "0px 0px -6% 0px",
+  });
+
+  requestAnimationFrame(() => targets.forEach((element) => observer.observe(element)));
+}
+
 initChrome();
 renderCats();
 initMailLinks();
@@ -159,3 +215,5 @@ initMailLinks();
 document.querySelectorAll("[data-social-links]").forEach((root) => {
   root.innerHTML = renderSocialLinks();
 });
+
+initAtmosphere();
