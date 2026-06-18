@@ -27,14 +27,14 @@ const cats = [
 ];
 
 const catGallery = [
-  ["/assets/images/cats/yuzu.jpg", "窓辺で過ごす保護猫"],
-  ["/assets/images/cats/hana.jpg", "店内でくつろぐ保護猫"],
+  ["/assets/images/cats/gallery-cat-beer.jpg", "くつろぐ保護猫"],
+  ["/assets/images/cats/gallery-black-cat.jpg", "店内で過ごす黒猫"],
   ["/assets/images/cats/kohaku.jpg", "日差しの中の保護猫"],
-  ["/assets/images/cats/rin.jpg", "静かに過ごす保護猫"],
+  ["/assets/images/cats/gallery-feeding-cats.jpg", "ごはんを食べる保護猫たち"],
   ["/assets/images/cats/mugi.jpg", "譲渡対象猫のイメージ"],
   ["/assets/images/cats/suzu.jpg", "眠る保護猫"],
-  ["/assets/images/site/concept.jpg", "梁の上で過ごす猫"],
-  ["/assets/images/site/sns.jpg", "保護猫たちのいる店内"],
+  ["/assets/images/cats/gallery-chair-cats.jpg", "椅子で過ごす保護猫たち"],
+  ["/assets/images/cats/gallery-kittens.jpg", "里親募集の子猫たち"],
 ];
 
 function currentPath() {
