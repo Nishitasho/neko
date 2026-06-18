@@ -1,0 +1,4 @@
+.featured-cat img {
+  object-fit: contain;
+  background: #f6eddd;
+}
