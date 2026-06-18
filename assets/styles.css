@@ -323,12 +323,6 @@ h1 { font-size: clamp(34px, 7vw, 66px); }
   border-radius: 10px;
   box-shadow: 0 8px 22px rgba(74, 54, 33, .12);
 }
-.cat-photo-gallery img[src$="suzu.jpg"],
-.cat-photo-gallery img[src$="gallery-kittens.jpg"] {
-  object-fit: contain;
-  object-position: center;
-  background: #f6eddd;
-}
 .instagram-panel {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
