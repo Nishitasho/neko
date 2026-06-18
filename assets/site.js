@@ -22,8 +22,8 @@ const socialLinks = [
 ];
 
 const cats = [
-  ["トラ店長", "/assets/images/cats/tora.jpg", "みんなを見守るボスの父親役でもあり教育係。2016年2月25日生まれのオス。トラの指導によりみんないい子に育ちます。"],
-  ["しま副店長", "/assets/images/cats/shima.jpg", "2016年10月生まれのオス。トラを支え、サポートする優しい母親役ような男の子。"],
+  ["トラ店長", "/assets/images/cats/tora.jpg", "みんなを見守るボス。父親役でもあり教育係。2016年2月25日生まれのオス。トラの指導によりみんないい子に育ちます。"],
+  ["しま副店長", "/assets/images/cats/shima.jpg", "2015年10月生まれのオス。トラを支え、サポートする優しい母親役のような男の子。"],
 ];
 
 const catGallery = [
@@ -73,7 +73,7 @@ function initChrome() {
       <div class="footer-grid">
         <section>
           <h2>鎌倉ねこの間</h2>
-          <p>緑の中の古民家風保護猫カフェ。保護猫たちにストレスの無いよう配慮しつつ営業しています。</p>
+          <p>緑の中の古民家風保護猫カフェ。保護猫たちにストレスのないよう配慮しつつ営業しています。</p>
           <dl class="footer-license" aria-label="動物取扱標識">
             <div><dt>動物取扱標識</dt><dd>名称：鎌倉ねこの間 / 種別：展示</dd></div>
             <div><dt>登録番号</dt><dd>第250372号</dd></div>
