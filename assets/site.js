@@ -129,16 +129,22 @@ function renderCats() {
           </div>
         </article>`).join("")}
     </div>
-    <section class="adoptable-gallery" aria-label="譲渡対象猫のイメージギャラリー">
+    <section id="adoptable-cats" class="adoptable-gallery" aria-label="譲渡対象猫のイメージギャラリー">
       <div class="gallery-copy">
         <p class="eyebrow">Adoptable Cats</p>
         <h3>譲渡対象の保護猫たちは日々入れ替わります</h3>
         <p>その時々で出会える保護猫たちは変わります。性格も過ごし方もそれぞれ違う、いろいろな保護猫たちの雰囲気を写真でご覧ください。</p>
       </div>
       <div class="cat-photo-gallery">
-        ${catGallery.map(([image, alt]) => `<img src="${toAsset(image)}" alt="${alt}">`).join("")}
+        ${catGallery.map(([image, alt]) => {
+          const src = toAsset(image);
+          return `<figure class="gallery-photo" style="--gallery-image: url('${src}')"><img src="${src}" alt="${alt}"></figure>`;
+        }).join("")}
       </div>
     </section>`;
+  if (location.hash === "#adoptable-cats") {
+    requestAnimationFrame(() => document.getElementById("adoptable-cats")?.scrollIntoView({ block: "start" }));
+  }
 }
 
 function initMailLinks() {
