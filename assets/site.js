@@ -47,6 +47,31 @@ function isActive(href) {
   return href === "/" ? path === "/" : path.startsWith(href);
 }
 
+function initScrollPosition() {
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+  if (location.hash) return;
+
+  const scrollToTop = () => {
+    const root = document.documentElement;
+    const previousBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+    window.scrollTo(0, 0);
+    root.style.scrollBehavior = previousBehavior;
+  };
+
+  window.addEventListener("pageshow", () => {
+    requestAnimationFrame(scrollToTop);
+  }, { once: true });
+
+  if (document.readyState === "complete") {
+    requestAnimationFrame(scrollToTop);
+  } else {
+    window.addEventListener("load", () => requestAnimationFrame(scrollToTop), { once: true });
+  }
+}
+
 function initChrome() {
   const header = document.querySelector("[data-header]");
   const footer = document.querySelector("[data-footer]");
@@ -214,6 +239,7 @@ function initAtmosphere() {
   requestAnimationFrame(() => targets.forEach((element) => observer.observe(element)));
 }
 
+initScrollPosition();
 initChrome();
 renderCats();
 initMailLinks();
