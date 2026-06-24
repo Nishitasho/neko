@@ -133,7 +133,7 @@ function renderCats() {
       <div class="gallery-copy">
         <p class="eyebrow">Adoptable Cats</p>
         <h3>譲渡対象の保護猫たちは日々入れ替わります</h3>
-        <p>その時々で出会える保護猫たちは変わります。性格も過ごし方もそれぞれ違う、いろいろな保護猫たちの雰囲気を写真でご覧ください。</p>
+        <p>その時々で出会える保護猫たちは変わります。毛色も体格も性格も過ごし方もそれぞれ違う、いろいろな保護猫たちの雰囲気を写真でご覧ください。</p>
       </div>
       <div class="cat-photo-gallery">
         ${catGallery.map(([image, alt]) => {
